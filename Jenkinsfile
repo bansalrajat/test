@@ -10,7 +10,8 @@ pipeline{
                     }
                 }
             stage('helloagain'){
-                sayHello 'stage2'
+                steps{
+                    sayHello 'stage2'}
                 }
             }
     }
