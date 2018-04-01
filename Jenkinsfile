@@ -1,6 +1,11 @@
 @Library('pipeline-library-demo')_
 
+pipeline{
 stage('Demo') {
-    echo 'Hello world'
+    steps{echo 'Hello world'
     sayHello 'Dave'
+         }
+}
+    stage 'helloagain'
+    sayHello 'stage2'
 }
