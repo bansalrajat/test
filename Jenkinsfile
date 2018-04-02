@@ -18,6 +18,11 @@ pipeline {
 		sh 'node -v'
 		}
 		}
+		stage ('No-end'){
+		agent {dockerfile true}
+		steps{ sh 'echo dokcerdokce '}
+		
+		}
 			
     }
 
