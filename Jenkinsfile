@@ -1,15 +1,26 @@
 pipeline {
-    agent {
-        docker {
-            image 'maven:3-alpine'
-            args '-v $HOME/.m2:/root/.m2'
-        }
-    }
+    agent none
     stages {
-        stage('Build') {
-            steps {
-                sh 'mvn -B'
-            }
-        }
+        stage ('Back-end'){
+            agent {docker {image 'maven:3-alpine'}}
+            steps{
+			echo "Host IP  is : `hostname -i`" 
+            echo "$PWD"
+            mvn -v
+			}
+			
+			}
+		stage ('Front-end'){
+		agent {docker {image 'node:7-alpine'}}
+		steps{
+		echo "hostname -i is :  `hostname -i`"
+		echo $PWD
+		node -v
+		}
+		}
+			
     }
+
+
+
 }
