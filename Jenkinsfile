@@ -5,7 +5,7 @@ pipeline {
             agent {docker {image 'maven:3-alpine'}}
             steps{
 			sh 'echo "Host IP  is : `hostname -i`"'
-            echo "$PWD"
+            sh 'echo "$PWD"'
             sh 'mvn -v'
 			}
 			
@@ -13,8 +13,8 @@ pipeline {
 		stage ('Front-end'){
 		agent {docker {image 'node:7-alpine'}}
 		steps{
-		echo "hostname -i is :  `hostname -i`"
-		echo $PWD
+		sh 'echo "hostname -i is :  `hostname -i`"'
+		sh 'echo $PWD'
 		sh 'node -v'
 		}
 		}
