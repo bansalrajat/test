@@ -6,7 +6,7 @@ pipeline {
             steps{
 			echo "Host IP  is : `hostname -i`" 
             echo "$PWD"
-            mvn -v
+            sh 'mvn -v'
 			}
 			
 			}
@@ -15,7 +15,7 @@ pipeline {
 		steps{
 		echo "hostname -i is :  `hostname -i`"
 		echo $PWD
-		node -v
+		sh 'node -v'
 		}
 		}
 			
