@@ -1,5 +1,5 @@
 pipeline{
-	agent {docker {image 'ubuntu'}}
+	agent 'kubernetes-node'
 	stages{
 		stage ('Yo to Nu hi chalegi'){
 			steps{
